@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Dias</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        #contador {
+            background-color: #222;
+            color: #eee;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="contador">Carregando...</div>
+
+    <script>
+        function atualizarContador() {
+            const dataAlvo = new Date('November 15, 2024 00:00:00').getTime();
+            const agora = new Date().getTime();
+            const diferenca = dataAlvo - agora;
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+
+            document.getElementById('contador').innerHTML = `Faltam ${dias} dias`;
+        }
+
+        atualizarContador();
+        setInterval(atualizarContador, 86400000); // Atualiza a cada 24 horas
+    </script>
+</body>
+</html>
